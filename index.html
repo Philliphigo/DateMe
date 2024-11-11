@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DateMe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Home Page -->
+    <section id="home" class="section">
+        <header>
+            <div class="logo">DateMe</div>
+            <nav>
+                <a href="#login">Login</a>
+                <a href="#signup">Sign Up</a>
+            </nav>
+        </header>
+        <div class="welcome-message">
+            <h1>Welcome to DateMe!</h1>
+            <p>Find your perfect match today!</p>
+            <button onclick="location.href='#signup'">Join Now</button>
+        </div>
+    </section>
+
+    <!-- Login Page -->
+    <section id="login" class="section hide">
+        <header>
+            <div class="logo">DateMe</div>
+            <nav>
+                <a href="#home">Home</a>
+            </nav>
+        </header>
+        <div class="form-container">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Settings Page -->
+    <section id="settings" class="section hide">
+        <header>
+            <div class="logo">DateMe</div>
+            <nav>
+                <a href="#profile">Profile</a>
+            </nav>
+        </header>
+        <div class="settings-container">
+            <h2>Settings</h2>
+            <form id="settingsForm">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">New Password</label>
+                <input type="password" id="newPassword" name="newPassword">
+
+                <label for="notifications">Enable Notifications</label>
+                <input type="checkbox" id="notifications" name="notifications">
+
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Inbox -->
+    <section id="inbox" class="section hide">
+        <header>
+            <div class="logo">DateMe</div>
+            <nav>
+                <a href="#profile">Profile</a>
+            </nav>
+        </header>
+        <div class="inbox-container">
+            <h2>Your Inbox</h2>
+            <ul>
+                <li><a href="#message1">Message from John</a></li>
+                <li><a href="#message2">Message from Sarah</a></li>
+                <li><a href="#message3">Message from Michael</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Messages -->
+    <section id="messages" class="section hide">
+        <header>
+            <div class="logo">DateMe</div>
+            <nav>
+                <a href="#inbox">Back to Inbox</a>
+            </nav>
+        </header>
+        <div class="messages-container">
+            <h2>Conversation with John</h2>
+            <div class="message">
+                <p><strong>John:</strong> Hey! How are you doing?</p>
+            </div>
+            <div class="message">
+                <p><strong>You:</strong> I'm doing great, thanks for asking! How about you?</p>
+            </div>
+            <textarea id="newMessage" placeholder="Type your message"></textarea>
+            <button id="sendMessage">Send</button>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+  </html>
