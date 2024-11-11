@@ -215,4 +215,78 @@ header nav a:hover {
 }
 
 .messages-container h2 {
-    font-size: 24
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ff0066;
+}
+
+.messages-container .message {
+    margin-bottom: 15px;
+}
+
+.messages-container .message p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.messages-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    height: 100px;
+}
+
+.messages-container button {
+    background-color: #ff0066;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.messages-container button:hover {
+    background-color: #e60058;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    header .logo {
+        font-size: 20px;
+    }
+    
+    header nav a {
+        margin-left: 10px;
+        font-size: 14px;
+    }
+    
+    #home {
+        height: auto;
+        padding: 20px;
+    }
+    
+    .form-container,
+    .settings-container,
+    .inbox-container,
+    .messages-container {
+        max-width: 100%;
+        padding: 15px;
+    }
+    
+    .form-container h2,
+    .settings-container h2,
+    .inbox-container h2,
+    .messages-container h2 {
+        font-size: 20px;
+    }
+}
