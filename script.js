@@ -56,43 +56,4 @@ function register() {
     var username = document.getElementById("reg-username").value;
     var password = document.getElementById("reg-password").value;
     
-    if (username && password) {
-        alert("Registration successful! You can now log in.");
-        showLogin(); // Switch to login page after successful registration
-    } else {
-        alert("Please fill in both fields.");
-    }
-}
-
-// Function to send a message from the messages page
-function sendMessage() {
-    var messageContent = document.getElementById("message-input").value;
-    
-    if (messageContent) {
-        var messageBox = document.createElement("div");
-        messageBox.classList.add("message");
-        messageBox.textContent = messageContent;
-        
-        document.getElementById("message-list").appendChild(messageBox);
-        document.getElementById("message-input").value = ""; // Clear the input
-    } else {
-        alert("Please enter a message.");
-    }
-}
-
-// Show profile settings based on the checkbox (Visibility toggle)
-function toggleProfileVisibility() {
-    var checkBox = document.getElementById("profile-visibility");
-    var profileSection = document.getElementById("profile");
-    
-    if (checkBox.checked) {
-        profileSection.style.display = "block";
-    } else {
-        profileSection.style.display = "none";
-    }
-}
-
-// Initial setup: Hide all sections initially and show only the home page
-document.addEventListener("DOMContentLoaded", function () {
-    showHome(); // Show the home page by default
-});
+    if (username && password)
