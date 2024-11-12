@@ -1,68 +1,65 @@
 document.addEventListener("DOMContentLoaded", function () {
-
-    // Scroll to Top Button Functionality
-    const scrollToTopButton = document.querySelector('.scroll-to-top');
-
-    // Show or hide the scroll-to-top button based on the scroll position
-    window.onscroll = function () {
-        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-            scrollToTopButton.style.display = "block";
-        } else {
-            scrollToTopButton.style.display = "none";
-        }
-    };
-
-    // Scroll smoothly to the top when the button is clicked
-    scrollToTopButton.addEventListener('click', function () {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // Form Validation for Sign-Up and Login Forms
     const signupForm = document.querySelector('#signup form');
     const loginForm = document.querySelector('#login form');
+    const logoutBtn = document.getElementById('logout-btn');
+    const userInfo = document.getElementById('user-info');
 
-    // Validate the Sign-Up Form
+    // Handle Sign Up
     if (signupForm) {
         signupForm.addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent page reload
+
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
 
-            if (name === "" || email === "" || password === "") {
-                alert("All fields are required!");
-                e.preventDefault();
-            } else if (password.length < 6) {
-                alert("Password must be at least 6 characters long.");
-                e.preventDefault();
-            }
+            // Store the user data in local storage
+            localStorage.setItem("user", JSON.stringify({ name, email, password }));
+
+            alert("Sign up successful! You can now log in.");
+            window.location.href = 'login.html'; // Redirect to login page
         });
     }
 
-    // Validate the Login Form
+    // Handle Login
     if (loginForm) {
         loginForm.addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent page reload
+
             const email = document.getElementById('login-email').value;
             const password = document.getElementById('login-password').value;
 
-            if (email === "" || password === "") {
-                alert("All fields are required!");
-                e.preventDefault();
+            const user = JSON.parse(localStorage.getItem("user"));
+
+            if (user && user.email === email && user.password === password) {
+                alert("Login successful!");
+                window.location.href = 'profile.html'; // Redirect to profile page
+            } else {
+                alert("Invalid email or password.");
             }
         });
     }
 
+    // Handle Profile Page
+    if (userInfo) {
+        const user = JSON.parse(localStorage.getItem("user"));
+
+        // If no user is logged in, redirect to login page
+        if (!user) {
+            window.location.href = 'login.html'; // Redirect to login page
+        } else {
+            // Display user info
+            document.getElementById('user-name').textContent = user.name;
+            document.getElementById('user-email').textContent = user.email;
+        }
+    }
+
+    // Handle Logout
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', function () {
+            localStorage.removeItem("user"); // Clear user data from local storage
+            alert("You have logged out.");
+            window.location.href = 'login.html'; // Redirect to login page
+        });
+    }
 });
