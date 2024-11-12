@@ -1,59 +1,68 @@
-// Function to show the login page
-function showLogin() {
-    document.getElementById("home").classList.add("hide");
-    document.getElementById("login").classList.remove("hide");
-}
+document.addEventListener("DOMContentLoaded", function () {
 
-// Function to show the home page
-function showHome() {
-    document.getElementById("login").classList.add("hide");
-    document.getElementById("home").classList.remove("hide");
-}
+    // Scroll to Top Button Functionality
+    const scrollToTopButton = document.querySelector('.scroll-to-top');
 
-// Function to switch to the settings page
-function showSettings() {
-    document.getElementById("profile").classList.add("hide");
-    document.getElementById("inbox").classList.add("hide");
-    document.getElementById("settings").classList.remove("hide");
-}
+    // Show or hide the scroll-to-top button based on the scroll position
+    window.onscroll = function () {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            scrollToTopButton.style.display = "block";
+        } else {
+            scrollToTopButton.style.display = "none";
+        }
+    };
 
-// Function to show the inbox
-function showInbox() {
-    document.getElementById("profile").classList.add("hide");
-    document.getElementById("settings").classList.add("hide");
-    document.getElementById("inbox").classList.remove("hide");
-}
+    // Scroll smoothly to the top when the button is clicked
+    scrollToTopButton.addEventListener('click', function () {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 
-// Function to show the profile page
-function showProfile() {
-    document.getElementById("inbox").classList.add("hide");
-    document.getElementById("settings").classList.add("hide");
-    document.getElementById("profile").classList.remove("hide");
-}
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
 
-// Function to switch to the messages page
-function showMessages() {
-    document.getElementById("profile").classList.add("hide");
-    document.getElementById("inbox").classList.add("hide");
-    document.getElementById("messages").classList.remove("hide");
-}
+    // Form Validation for Sign-Up and Login Forms
+    const signupForm = document.querySelector('#signup form');
+    const loginForm = document.querySelector('#login form');
 
-// Function to handle login form submission
-function login() {
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-    
-    if (username === "user" && password === "password") {
-        alert("Login successful!");
-        showHome(); // Switch to home page after successful login
-    } else {
-        alert("Invalid credentials! Please try again.");
+    // Validate the Sign-Up Form
+    if (signupForm) {
+        signupForm.addEventListener('submit', function (e) {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (name === "" || email === "" || password === "") {
+                alert("All fields are required!");
+                e.preventDefault();
+            } else if (password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                e.preventDefault();
+            }
+        });
     }
-}
 
-// Function to handle user registration (simplified version)
-function register() {
-    var username = document.getElementById("reg-username").value;
-    var password = document.getElementById("reg-password").value;
-    
-    if (username && password)
+    // Validate the Login Form
+    if (loginForm) {
+        loginForm.addEventListener('submit', function (e) {
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            if (email === "" || password === "") {
+                alert("All fields are required!");
+                e.preventDefault();
+            }
+        });
+    }
+
+});
