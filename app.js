@@ -1,13 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const signupForm = document.querySelector('#signup form');
-    const loginForm = document.querySelector('#login form');
-    const logoutBtn = document.getElementById('logout-btn');
-    const userInfo = document.getElementById('user-info');
+    const signupForm = document.getElementById('signup-form');
+    const loginForm = document.getElementById('login-form');
 
     // Handle Sign Up
     if (signupForm) {
         signupForm.addEventListener('submit', function (e) {
-            e.preventDefault(); // Prevent page reload
+            e.preventDefault(); // Prevent form from submitting to the server
 
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
@@ -24,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Handle Login
     if (loginForm) {
         loginForm.addEventListener('submit', function (e) {
-            e.preventDefault(); // Prevent page reload
+            e.preventDefault(); // Prevent form from submitting to the server
 
             const email = document.getElementById('login-email').value;
             const password = document.getElementById('login-password').value;
@@ -37,29 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 alert("Invalid email or password.");
             }
-        });
-    }
-
-    // Handle Profile Page
-    if (userInfo) {
-        const user = JSON.parse(localStorage.getItem("user"));
-
-        // If no user is logged in, redirect to login page
-        if (!user) {
-            window.location.href = 'login.html'; // Redirect to login page
-        } else {
-            // Display user info
-            document.getElementById('user-name').textContent = user.name;
-            document.getElementById('user-email').textContent = user.email;
-        }
-    }
-
-    // Handle Logout
-    if (logoutBtn) {
-        logoutBtn.addEventListener('click', function () {
-            localStorage.removeItem("user"); // Clear user data from local storage
-            alert("You have logged out.");
-            window.location.href = 'login.html'; // Redirect to login page
         });
     }
 });
