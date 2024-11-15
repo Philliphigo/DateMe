@@ -11,10 +11,42 @@
 <body>
     <!-- Main Container -->
     <div class="home-container">
-        <!-- User Profile Section -->
-        <div class="user-profile">
-            <img id="user-picture" src="Screenshot_20241114_233733_Instagram.jpg" alt="User Profile" class="profile-picture">
+        <!-- Header Section (Profile Info) -->
+        <header class="home-header">
+            <div class="user-profile">
+                <img id="user-picture" src="Screenshot_20241114_233733_Instagram.jpg" alt="User Profile" class="profile-picture">
+                <div class="user-info">
+                    <h2 id="user-name">Philip, 19</h2>
+                    <p id="user-location">Lilongwe</p>
+                </div>
+            </div>
+
+            <button class="edit-profile-button" onclick="location.href='edit-profile.html'">
+                Edit Profile <span class="edit-icon">&#9998;</span>
+            </button>
+        </header>
+
+        <!-- Upload Picture Section -->
+        <div class="upload-section">
+            <button id="upload-button" class="upload-button">Upload Picture</button>
+            <input type="file" id="file-input" style="display: none;" accept="image/*">
         </div>
+
+        <!-- Nearby Users Section -->
+        <section class="nearby-users-section">
+            <h3>Nearby Users</h3>
+            <div class="user-cards-container">
+                <!-- User Card Example -->
+                <div class="user-card">
+                    <img src="Screenshot_20241114_233733_Instagram.jpg" alt="Nearby User" class="user-card-picture">
+                    <div class="user-card-info">
+                        <p class="user-card-name">John, 25</p>
+                        <p class="user-card-location">Lilongwe</p>
+                    </div>
+                </div>
+                <!-- Repeat user card as needed -->
+            </div>
+        </section>
 
         <!-- Like/Dislike Buttons -->
         <div class="action-buttons">
@@ -25,30 +57,43 @@
                 <img src="pngtree-vector-like-icon-png-image_695362.jpg" alt="Like" class="button-icon">
             </button>
         </div>
-    </div>
 
-    <!-- Bottom Navigation (Fixed at the Bottom) -->
-    <div class="bottom-nav">
-        <button class="nav-button home-button" onclick="location.href='home.html'">
-            <img src="png-transparent-computer-icons-home-house-home-angle-building-rectangle-thumbnail.png" alt="Home" class="nav-icon">
-            <span>Home</span>
-        </button>
-        <button class="nav-button matches-button" onclick="location.href='matches.html'">
-            <img src="3939875.png" alt="Matches" class="nav-icon">
-            <span>Matches</span>
-        </button>
-        <button class="nav-button connect-button" onclick="location.href='connect.html'">
-            <img src="1159627.png" alt="Connect" class="nav-icon">
-            <span>Connect</span>
-        </button>
-        <button class="nav-button inbox-button" onclick="location.href='inbox.html'">
-            <img src="1159627.png" alt="Inbox" class="nav-icon">
-            <span>Inbox</span>
-        </button>
-        <button class="nav-button notifications-button" onclick="location.href='notifications.html'">
-            <img src="pngtree-vector-notification-icon-png-image_927192.jpg" alt="Notifications" class="nav-icon">
-            <span>Notifications</span>
-        </button>
+        <!-- Settings Section -->
+        <div class="settings-section">
+            <button id="settings-button" class="settings-button">Settings</button>
+        </div>
+
+        <!-- Settings Modal -->
+        <div id="settings-modal" style="display: none;">
+            <div class="settings-content" id="settings-content">
+                <!-- Settings will be dynamically loaded here -->
+                <button id="close-settings-button">Close</button>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation (Fixed at the Bottom) -->
+        <div class="bottom-nav">
+            <button class="nav-button home-button" onclick="location.href='home.html'">
+                <img src="png-transparent-computer-icons-home-house-home-angle-building-rectangle-thumbnail.png" alt="Home" class="nav-icon">
+                <span>Home</span>
+            </button>
+            <button class="nav-button matches-button" onclick="location.href='matches.html'">
+                <img src="3939875.png" alt="Matches" class="nav-icon">
+                <span>Matches</span>
+            </button>
+            <button class="nav-button connect-button" onclick="location.href='connect.html'">
+                <img src="1159627.png" alt="Connect" class="nav-icon">
+                <span>Connect</span>
+            </button>
+            <button class="nav-button inbox-button" onclick="location.href='inbox.html'">
+                <img src="1159627.png" alt="Inbox" class="nav-icon">
+                <span>Inbox</span>
+            </button>
+            <button class="nav-button notifications-button" onclick="location.href='notifications.html'">
+                <img src="pngtree-vector-notification-icon-png-image_927192.jpg" alt="Notifications" class="nav-icon">
+                <span>Notifications</span>
+            </button>
+        </div>
     </div>
 
     <!-- JavaScript -->
