@@ -8,18 +8,42 @@
 </head>
 <body>
     <div class="profile-container">
-        <div class="profile-card">
-            <!-- Profile Picture -->
-            <img src="profile-pic.jpg" alt="Profile Picture" class="profile-picture">
-            
-            <!-- User Information -->
-            <h2 class="user-name">John Doe</h2>
-            <p class="user-email">john.doe@example.com</p>
-            
-            <!-- Buttons -->
-            <button class="profile-button" onclick="editProfile()">Edit Profile</button>
-            <button class="profile-button logout" onclick="logout()">Logout</button>
+        <!-- Back button and Settings icon -->
+        <div class="header">
+            <button class="back-button">&#8592;</button>
+            <h2>My Profile</h2>
+            <button class="settings-button">&#9881;</button>
         </div>
+
+        <!-- Profile Picture with Edit Photos Button -->
+        <div class="profile-picture-container">
+            <img src="profile-pic.jpg" alt="Profile Picture" class="profile-picture">
+            <button class="edit-photos-button">
+                Edit Photos
+                <span class="edit-icon">&#9998;</span>
+            </button>
+        </div>
+
+        <!-- User Information -->
+        <h2 class="user-name">Philip, 19</h2>
+        <p class="user-profession">Other</p>
+        <p class="user-location">Lilongwe</p>
+        
+        <!-- Like Counter -->
+        <p class="like-counter">1 likes</p>
+
+        <!-- Edit My Personal Details Button -->
+        <button class="edit-details-button">Edit My Personal Details &#9654;</button>
+
+        <!-- Share Profile Button -->
+        <button class="share-profile-button">
+            &#x27A4; Share My Profile
+        </button>
+
+        <!-- Edit Details Button at the bottom -->
+        <button class="bottom-edit-details-button">
+            Edit Details <span class="edit-icon">&#9998;</span>
+        </button>
     </div>
 
     <script src="app.js"></script>
