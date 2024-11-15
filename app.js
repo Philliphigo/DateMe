@@ -1,51 +1,60 @@
-<!-- index.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
-    <link rel="stylesheet" href="index.css">
-</head>
-<body>
-    <header>
-        <h1>Welcome to DateMe</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#signup">Sign Up</a></li>
-            <li><a href="#login">Login</a></li>
-        </ul>
-    </nav>
+document.addEventListener("DOMContentLoaded", function () {
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        });
+    });
 
-    <section id="home" class="active">
-        <h2>Welcome to the Homepage</h2>
-    </section>
-    
-    <section id="signup">
-        <h2>Sign Up</h2>
-        <form id="signup-form">
-            <input type="text" id="name" placeholder="Name" required>
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <button type="submit">Sign Up</button>
-        </form>
-    </section>
-    
-    <section id="login">
-        <h2>Login</h2>
-        <form id="login-form">
-            <input type="email" id="login-email" placeholder="Email" required>
-            <input type="password" id="login-password" placeholder="Password" required>
-            <button type="submit">Login</button>
-        </form>
-    </section>
+    // Form Validation for Sign-Up and Login Forms
+    const signupForm = document.querySelector('#signup-form');
+    const loginForm = document.querySelector('#login-form');
 
-    <footer>
-        <p>&copy; 2024 DateMe</p>
-    </footer>
+    // Validate and Handle Sign-Up Form
+    if (signupForm) {
+        signupForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
 
-    <script src="index.js"></script>
-</body>
-</html>
+            if (name && email && password.length >= 6) {
+                // Save user details to localStorage
+                localStorage.setItem('user', JSON.stringify({ name, email }));
+                alert("Sign-up successful! Redirecting to profile.");
+                window.location.href = 'profile.html'; // Redirect to profile page
+            } else {
+                alert("Please fill all fields correctly.");
+            }
+        });
+    }
+
+    // Validate and Handle Login Form
+    if (loginForm) {
+        loginForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            // Check stored user details
+            const storedUser = JSON.parse(localStorage.getItem('user'));
+            if (storedUser && storedUser.email === email && password.length >= 6) {
+                alert("Login successful! Redirecting to profile.");
+                window.location.href = 'profile.html'; // Redirect to profile page
+            } else {
+                alert("Invalid email or password.");
+            }
+        });
+    }
+
+    // Toggle active sections based on navigation clicks
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', function () {
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(this.getAttribute('href').substring(1)).classList.add('active');
+        });
+    });
+});
