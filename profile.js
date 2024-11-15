@@ -1,83 +1,51 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Scroll to Top Button Functionality
-    const scrollToTopButton = document.querySelector('.scroll-to-top');
-    window.onscroll = function () {
-        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-            scrollToTopButton.style.display = "block";
-        } else {
-            scrollToTopButton.style.display = "none";
-        }
-    };
-    scrollToTopButton.addEventListener('click', function () {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+// Edit Photos functionality
+function openPhotoEditor() {
+    document.getElementById('photo-input').click();
+}
 
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-        });
-    });
-
-    // Form Validation for Sign-Up and Login Forms
-    const signupForm = document.querySelector('#signup-form');
-    const loginForm = document.querySelector('#login-form');
-
-    // Validate and Handle Sign-Up Form
-    if (signupForm) {
-        signupForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-
-            if (name && email && password.length >= 6) {
-                // Save user details to localStorage
-                localStorage.setItem('user', JSON.stringify({ name, email }));
-                alert("Sign-up successful! Redirecting to profile.");
-                window.location.href = 'profile.html'; // Redirect to profile page
-            } else {
-                alert("Please fill all fields correctly.");
-            }
-        });
+function updateProfilePicture(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('profile-picture').src = e.target.result;
+        };
+        reader.readAsDataURL(file);
     }
+}
 
-    // Validate and Handle Login Form
-    if (loginForm) {
-        loginForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            const email = document.getElementById('login-email').value;
-            const password = document.getElementById('login-password').value;
+// Edit Personal Details functionality
+function openEditDetailsForm() {
+    const modal = document.getElementById('edit-details-modal');
+    modal.style.display = 'block';
+}
 
-            // Check stored user details
-            const storedUser = JSON.parse(localStorage.getItem('user'));
-            if (storedUser && storedUser.email === email && password.length >= 6) {
-                alert("Login successful! Redirecting to profile.");
-                window.location.href = 'profile.html'; // Redirect to profile page
-            } else {
-                alert("Invalid email or password.");
-            }
-        });
-    }
+function closeEditDetailsForm() {
+    const modal = document.getElementById('edit-details-modal');
+    modal.style.display = 'none';
+}
 
-    // Display User Info on Profile Page
-    if (window.location.pathname.includes("profile.html")) {
-        const storedUser = JSON.parse(localStorage.getItem('user'));
-        if (storedUser) {
-            document.getElementById('user-name').textContent = storedUser.name;
-            document.getElementById('user-profession').textContent = "Other";
-            document.getElementById('user-location').textContent = "Lilongwe";
-            document.getElementById('profile-picture').src = storedUser.profilePicture || 'default-profile.png';
-        } else {
-            window.location.href = 'index.html'; // Redirect to home if no user info is found
-        }
+// Save Personal Details functionality (stub for now)
+document.getElementById('edit-details-form').addEventListener('submit', function(e) {
+    e.preventDefault();
 
-        // Logout Button Functionality
-        document.getElementById('logout-button').addEventListener('click', function () {
-            localStorage.removeItem('user');
-            alert("Logged out successfully.");
-            window.location.href = 'index.html'; // Redirect to home page after logout
-        });
-    }
+    const name = document.getElementById('edit-name').value;
+    const age = document.getElementById('edit-age').value;
+    const bio = document.getElementById('edit-bio').value;
+    const occupation = document.getElementById('edit-occupation').value;
+    const preferences = document.getElementById('edit-preferences').value;
+
+    // For now, just update the profile with the new values
+    document.getElementById('user-name').textContent = `${name}, ${age}`;
+    document.getElementById('user-profession').textContent = occupation;
+    document.getElementById('user-location').textContent = preferences;
+
+    // Close the modal after saving
+    closeEditDetailsForm();
 });
+
+// Share Profile functionality
+function shareProfile() {
+    const profileUrl = window.location.href;  // Current page URL
+    prompt("Copy your profile URL:", profileUrl);
+}
