@@ -1,0 +1,107 @@
+/* Global styling from previous files */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    height: 100vh;
+    flex-direction: column;
+}
+
+/* Home container */
+.home-container {
+    width: 90%;
+    max-width: 400px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+    flex-grow: 1;
+}
+
+/* User profile styling */
+.user-profile {
+    margin-bottom: 20px;
+}
+
+.profile-picture {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    max-width: 300px;
+}
+
+/* Action buttons (Like/Dislike) */
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.action-button {
+    width: 45%;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.button-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+/* Bottom navigation styling (fixed to bottom) */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #fff;
+    padding: 10px 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.bottom-nav button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-icon {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .profile-picture {
+        max-width: 80%;
+    }
+
+    .action-buttons button {
+        width: 40%;
+    }
+
+    .button-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .nav-icon {
+        width: 25px;
+        height: 25px;
+    }
+}
