@@ -53,5 +53,54 @@
 
     <!-- Link to the external JavaScript for functionality -->
     <script src="app.js"></script>
+
+    <script>
+        // Handle switching to Login form
+        document.getElementById('show-login').addEventListener('click', function () {
+            document.getElementById('signup').style.display = 'none';
+            document.getElementById('login').style.display = 'block';
+        });
+
+        // Handle switching to Sign Up form
+        document.getElementById('show-signup').addEventListener('click', function () {
+            document.getElementById('login').style.display = 'none';
+            document.getElementById('signup').style.display = 'block';
+        });
+
+        // Handle Login form submission
+        document.getElementById('login-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // You can later connect this logic to an actual authentication system
+            const loginEmail = document.getElementById('login-email').value;
+            const loginPassword = document.getElementById('login-password').value;
+
+            if (loginEmail && loginPassword) {
+                // Redirect to the profile page (assuming successful login)
+                window.location.href = 'profile.html'; // Make sure to create this page
+            } else {
+                alert('Invalid login credentials');
+            }
+        });
+
+        // Handle Sign Up form submission
+        document.getElementById('signup-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // You can later connect this logic to an actual registration system
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (name && email && password) {
+                alert("Account created successfully!");
+                // Optionally, redirect to login page after signup
+                document.getElementById('signup').style.display = 'none';
+                document.getElementById('login').style.display = 'block';
+            } else {
+                alert('Please fill all fields correctly');
+            }
+        });
+    </script>
 </body>
 </html>
