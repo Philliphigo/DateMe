@@ -65,13 +65,10 @@ document.addEventListener("DOMContentLoaded", function () {
     if (window.location.pathname.includes("profile.html")) {
         const storedUser = JSON.parse(localStorage.getItem('user'));
         if (storedUser) {
-            document.getElementById('user-name').querySelector('span').textContent = storedUser.name;
-            document.getElementById('user-email').querySelector('span').textContent = storedUser.email;
-
-            // Dynamically insert profile picture (optional)
-            const profilePicture = document.getElementById('profile-picture');
-            profilePicture.src = storedUser.profilePicture || 'default-profile.png'; // Default image if not set
-
+            document.getElementById('user-name').textContent = storedUser.name;
+            document.getElementById('user-profession').textContent = "Other";
+            document.getElementById('user-location').textContent = "Lilongwe";
+            document.getElementById('profile-picture').src = storedUser.profilePicture || 'default-profile.png';
         } else {
             window.location.href = 'index.html'; // Redirect to home if no user info is found
         }
