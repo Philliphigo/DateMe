@@ -4,17 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Nearby Users</title>
-    <link rel="stylesheet" href="../styles.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="home.css">
 </head>
 <body>
+    <!-- Main Container -->
     <div class="home-container">
-        <!-- User profile section -->
+        <!-- User Profile Section -->
         <div class="user-profile">
             <img id="user-picture" src="Screenshot_20241114_233733_Instagram.jpg" alt="User Profile" class="profile-picture">
         </div>
 
-        <!-- Like/Dislike buttons -->
+        <!-- Like/Dislike Buttons -->
         <div class="action-buttons">
             <button id="dislike-button" class="action-button">
                 <img src="computer-icons-icon-design-like-button-clip-art-png-favpng-3SCMzVujVTNfYC2Ghe1vCzrTm_t.jpg" alt="Dislike" class="button-icon">
@@ -25,25 +27,31 @@
         </div>
     </div>
 
-    <!-- Bottom navigation (fixed to the bottom) -->
+    <!-- Bottom Navigation (Fixed at the Bottom) -->
     <div class="bottom-nav">
-        <button class="home-button">
+        <button class="nav-button home-button" onclick="location.href='home.html'">
             <img src="png-transparent-computer-icons-home-house-home-angle-building-rectangle-thumbnail.png" alt="Home" class="nav-icon">
+            <span>Home</span>
         </button>
-        <button class="matches-button">
+        <button class="nav-button matches-button" onclick="location.href='matches.html'">
             <img src="3939875.png" alt="Matches" class="nav-icon">
+            <span>Matches</span>
         </button>
-        <button class="connect-button">
+        <button class="nav-button connect-button" onclick="location.href='connect.html'">
             <img src="1159627.png" alt="Connect" class="nav-icon">
+            <span>Connect</span>
         </button>
-        <button class="inbox-button">
+        <button class="nav-button inbox-button" onclick="location.href='inbox.html'">
             <img src="icons/inbox-icon.svg" alt="Inbox" class="nav-icon">
+            <span>Inbox</span>
         </button>
-        <button class="notifications-button">
+        <button class="nav-button notifications-button" onclick="location.href='notifications.html'">
             <img src="pngtree-vector-notification-icon-png-image_927192.jpg" alt="Notifications" class="nav-icon">
+            <span>Notifications</span>
         </button>
     </div>
 
+    <!-- JavaScript -->
     <script src="home.js"></script>
 </body>
 </html>
