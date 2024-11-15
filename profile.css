@@ -1,67 +1,206 @@
-/* Profile Picture Container */
-.profile-picture-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    position: relative;
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Profile Picture Styling */
-.profile-picture {
-    width: 80px;  /* Set the width to match buttons */
-    height: 80px; /* Set the height to match buttons */
-    border-radius: 50%;  /* Make it circular */
-    object-fit: cover;  /* Ensure the image is cropped properly */
-    border: 2px solid #ccc;  /* Add a border to match the buttons */
-}
-
-/* Edit Photos Button */
-.edit-photos-button {
-    background-color: #f4f4f4;
+/* Body and Background */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
     color: #333;
-    padding: 8px 16px;
-    font-size: 14px;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    position: absolute;
-    bottom: -25px;  /* Position it just below the profile picture */
+    padding: 20px;
 }
 
-/* Adjust Profile Picture and Buttons to Fit Properly */
+/* Profile Container */
 .profile-container {
+    background-color: white;
+    border-radius: 10px;
     padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Section */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.header h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+/* Profile Picture Section */
+.profile-picture-container {
+    position: relative;
     text-align: center;
 }
 
-h2.user-name {
-    font-size: 22px; /* Smaller text to match button styling */
-    font-weight: bold;
+.profile-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.edit-photos-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+.edit-photos-button:hover {
+    background-color: #0056b3;
+}
+
+/* User Information */
+.user-name {
+    font-size: 28px;
+    color: #333;
     margin-top: 10px;
 }
 
-/* Additional Button Styling */
+.user-profession,
+.user-location {
+    font-size: 16px;
+    color: #777;
+    margin: 5px 0;
+}
+
+.like-counter {
+    font-size: 16px;
+    color: #28a745;
+    margin-bottom: 15px;
+}
+
+/* Buttons */
 button {
     background-color: #007bff;
     color: white;
     border: none;
-    padding: 12px 25px;
-    border-radius: 25px;
-    cursor: pointer;
+    padding: 12px 20px;
+    border-radius: 5px;
     margin: 10px 0;
-    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
 }
 
 button:hover {
     background-color: #0056b3;
 }
 
-/* Logout Button */
-.logout-button {
-    background-color: red;
+/* Share Profile Button */
+.share-profile-button {
+    background-color: #28a745;
 }
 
-.logout-button:hover {
-    background-color: darkred;
+.share-profile-button:hover {
+    background-color: #218838;
+}
+
+/* Modal Styling for Edit Personal Details */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    text-align: left;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.close-btn {
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #aaa;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+#edit-details-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#edit-details-form label {
+    font-size: 14px;
+    margin: 10px 0 5px;
+    color: #333;
+}
+
+#edit-details-form input,
+#edit-details-form textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #333;
+}
+
+#edit-details-form button {
+    background-color: #007bff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+}
+
+#edit-details-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+    background-color: #007bff;
+    color: white;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    display: none;
+}
+
+.scroll-to-top:hover {
+    background-color: #0056b3;
 }
