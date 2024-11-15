@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // List of users (for now, this can be static data)
+    // List of users (static data or fetched from an API)
     const users = [
-        { name: 'User 1', picture: 'user1.jpg' },
-        { name: 'User 2', picture: 'user2.jpg' },
-        { name: 'User 3', picture: 'user3.jpg' }
+        { name: 'John, 25', picture: 'user1.jpg', location: 'Lilongwe' },
+        { name: 'Alice, 22', picture: 'user2.jpg', location: 'Lilongwe' },
+        { name: 'Bob, 29', picture: 'user3.jpg', location: 'Lilongwe' }
     ];
 
-    let currentUserIndex = 0;
+    let currentUserIndex = 0; // Track the currently displayed nearby user
 
-    // Elements
+    // Elements for profile and user cards
     const userPicture = document.getElementById('user-picture');
     const likeButton = document.getElementById('like-button');
     const dislikeButton = document.getElementById('dislike-button');
@@ -18,32 +18,67 @@ document.addEventListener('DOMContentLoaded', function () {
     const closeSettingsButton = document.getElementById('close-settings-button');
     const settingsContent = document.getElementById('settings-content');
     const fileInput = document.getElementById('file-input');
+    const userName = document.getElementById('user-name');
+    const userLocation = document.getElementById('user-location');
+    const userCardsContainer = document.querySelector('.user-cards-container');
 
-    // Function to display the next user
+    // Define Philip's (profile) data separately to avoid overwriting
+    const philip = { name: 'Philip, 19', picture: 'philip.jpg', location: 'Lilongwe' };
+    
+    // Function to display the current user profile (Philip's)
+    function updateUserProfile() {
+        userPicture.src = philip.picture;
+        userName.textContent = philip.name;
+        userLocation.textContent = philip.location;
+    }
+
+    // Function to display the next nearby user
     function displayNextUser() {
+        // Loop back to the first user if the last user is reached
         if (currentUserIndex < users.length - 1) {
             currentUserIndex++;
         } else {
-            currentUserIndex = 0; // Reset to the first user (or you can hide the button if desired)
+            currentUserIndex = 0; // Reset to the first user
         }
-        userPicture.src = users[currentUserIndex].picture;
-        console.log('Displaying:', users[currentUserIndex].name); // Debugging info
+        updateNearbyUsers(); // Only update nearby users
+    }
+
+    // Function to update the list of nearby users (in the user cards section)
+    function updateNearbyUsers() {
+        userCardsContainer.innerHTML = ''; // Clear the current list
+        const currentUser = users[currentUserIndex];
+        const userCard = createUserCard(currentUser);
+        userCardsContainer.appendChild(userCard); // Add only one user at a time
+    }
+
+    // Helper function to create a user card element for nearby users
+    function createUserCard(user) {
+        const userCard = document.createElement('div');
+        userCard.classList.add('user-card');
+        userCard.innerHTML = `
+            <img src="${user.picture}" alt="${user.name}" class="user-card-picture">
+            <div class="user-card-info">
+                <p class="user-card-name">${user.name}</p>
+                <p class="user-card-location">${user.location}</p>
+            </div>
+        `;
+        return userCard;
     }
 
     // Event listeners for Like/Dislike buttons
     likeButton.addEventListener('click', function () {
         console.log('Liked:', users[currentUserIndex].name);
-        displayNextUser();
+        displayNextUser(); // Only change nearby users, not profile
     });
 
     dislikeButton.addEventListener('click', function () {
         console.log('Disliked:', users[currentUserIndex].name);
-        displayNextUser();
+        displayNextUser(); // Only change nearby users, not profile
     });
 
-    // Upload picture functionality
+    // Upload picture functionality for the profile picture
     uploadButton.addEventListener('click', function () {
-        fileInput.click(); // Trigger file input click
+        fileInput.click(); // Trigger file input click for profile picture upload
     });
 
     fileInput.addEventListener('change', function (event) {
@@ -51,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (file) {
             const reader = new FileReader();
             reader.onload = function (e) {
-                userPicture.src = e.target.result; // Update the user picture with the uploaded image
+                userPicture.src = e.target.result; // Update the profile picture with the uploaded image
             };
             reader.readAsDataURL(file);
         }
@@ -68,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
         settingsModal.style.display = 'none'; // Hide the settings modal
     });
 
-    // Function to load settings (can be expanded with more settings)
+    // Function to load settings
     function loadSettings() {
         settingsContent.innerHTML = `
             <h3>Settings</h3>
@@ -79,4 +114,8 @@ document.addEventListener('DOMContentLoaded', function () {
             </ul>
         `;
     }
+
+    // Initially load Philip's profile and the first nearby user
+    updateUserProfile();
+    updateNearbyUsers();
 });
