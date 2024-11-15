@@ -3,71 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
+    <title>My Profile - DateMe</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Scroll to Top Button -->
-    <button class="scroll-to-top">&#8679; Top</button>
+    <!-- Navigation Section -->
+    <header class="profile-header">
+        <a href="index.html" class="back-btn">←</a>
+        <h1>My Profile</h1>
+        <a href="#" class="settings-btn">⚙</a>
+    </header>
 
-    <div class="profile-container">
-        <!-- Back button and Settings icon -->
-        <div class="header">
-            <a href="home.html">
-                <button class="back-button">&#8592;</button>
-            </a>
-            <h2>My Profile</h2>
-            <button class="settings-button" id="settings-button">&#9881;</button>
+    <!-- Profile Section -->
+    <section class="profile-container">
+        <!-- Profile Picture -->
+        <div class="profile-picture">
+            <img src="https://via.placeholder.com/150" alt="Profile Picture">
         </div>
 
-        <!-- Profile Picture with Edit Photos Button -->
-        <div class="profile-picture-container">
-            <img id="profile-picture" src="442444577_1020965319453140_8401834952613764260_n.jpg" alt="Profile Picture" class="profile-picture">
-            <button class="edit-photos-button" onclick="openPhotoEditor()">
-                Edit Photos
-                <span class="edit-icon">&#9998;</span>
-            </button>
-            <input type="file" id="photo-input" accept="image/*" style="display: none;" onchange="updateProfilePicture(event)">
+        <!-- User Details -->
+        <div class="profile-details">
+            <h2>Philip, 19</h2>
+            <p class="profile-info">Other • Lilongwe</p>
+            <p class="likes">1 like</p>
         </div>
 
-        <!-- User Information -->
-        <h2 id="user-name" class="user-name">Philip, 19</h2>
-        <p id="user-profession" class="user-profession">Other</p>
-        <p id="user-location" class="user-location">Lilongwe</p>
-        
-        <!-- Like Counter -->
-        <p class="like-counter">1 likes</p>
-
-        <!-- Edit My Personal Details Button -->
-        <button class="edit-details-button" onclick="openEditDetailsForm()">Edit My Personal Details &#9654;</button>
-
-        <!-- Share Profile Button -->
-        <button class="share-profile-button" onclick="shareProfile()">&#x27A4; Share My Profile</button>
-
-        <!-- Edit Details Modal -->
-        <div id="edit-details-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-btn" onclick="closeEditDetailsForm()">&times;</span>
-                <h3>Edit My Details</h3>
-                <form id="edit-details-form">
-                    <label for="edit-name">Name:</label>
-                    <input type="text" id="edit-name" value="Philip">
-                    <label for="edit-age">Age:</label>
-                    <input type="number" id="edit-age" value="19">
-                    <label for="edit-bio">Bio:</label>
-                    <textarea id="edit-bio">This is my bio.</textarea>
-                    <label for="edit-occupation">Occupation:</label>
-                    <input type="text" id="edit-occupation" value="Other">
-                    <label for="edit-preferences">Preferences:</label>
-                    <input type="text" id="edit-preferences" value="Music, Tech, Sports">
-                    <button type="submit">Save Changes</button>
-                </form>
-            </div>
+        <!-- Action Buttons -->
+        <div class="profile-actions">
+            <button class="btn-primary">Edit My Personal Details</button>
+            <button class="btn-secondary">Share My Profile</button>
+            <button class="btn-danger">Logout</button>
         </div>
+    </section>
 
-        <!-- Logout Button -->
-        <button id="logout-button" class="logout-button">Logout</button>
-    </div>
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 DateMe - All Rights Reserved</p>
+    </footer>
 
     <script src="app.js"></script>
 </body>
