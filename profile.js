@@ -25,18 +25,19 @@ function closeEditDetailsForm() {
     modal.style.display = 'none';
 }
 
-// Save Personal Details functionality (stub for now)
+// Save Personal Details functionality
 document.getElementById('edit-details-form').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const name = document.getElementById('edit-name').value;
-    const age = document.getElementById('edit-age').value;
-    const bio = document.getElementById('edit-bio').value;
-    const occupation = document.getElementById('edit-occupation').value;
-    const preferences = document.getElementById('edit-preferences').value;
+    const name = document.getElementById('edit-name').value || "Your Name";
+    const age = document.getElementById('edit-age').value || "Age";
+    const bio = document.getElementById('edit-bio').value || "Bio";
+    const occupation = document.getElementById('edit-occupation').value || "Occupation";
+    const preferences = document.getElementById('edit-preferences').value || "Preferences";
 
-    // For now, just update the profile with the new values
+    // Update the profile with the new values
     document.getElementById('user-name').textContent = `${name}, ${age}`;
+    document.getElementById('user-bio').textContent = bio;
     document.getElementById('user-profession').textContent = occupation;
     document.getElementById('user-location').textContent = preferences;
 
@@ -46,6 +47,39 @@ document.getElementById('edit-details-form').addEventListener('submit', function
 
 // Share Profile functionality
 function shareProfile() {
-    const profileUrl = window.location.href;  // Current page URL
+    const profileUrl = window.location.href; // Current page URL
     prompt("Copy your profile URL:", profileUrl);
 }
+
+// Logout functionality
+function logout() {
+    window.location.href = "../login/index.html"; // Redirect to the login page
+}
+
+// Settings functionality (example: open a settings modal)
+function openSettings() {
+    alert("Settings functionality can be added here!");
+}
+
+// Scroll to Top Button functionality
+const scrollToTopBtn = document.querySelector('.scroll-to-top');
+
+window.addEventListener('scroll', function() {
+    if (window.scrollY > 100) {
+        scrollToTopBtn.style.display = 'block';
+    } else {
+        scrollToTopBtn.style.display = 'none';
+    }
+});
+
+scrollToTopBtn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Close Modal on Outside Click
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('edit-details-modal');
+    if (event.target === modal) {
+        closeEditDetailsForm();
+    }
+});
