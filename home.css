@@ -44,27 +44,27 @@ body {
 }
 
 .profile-picture {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     margin-right: 15px;
     object-fit: cover;
 }
 
 .user-info h2 {
-    font-size: 20px;
+    font-size: 22px;
     color: #333;
     margin: 0;
 }
 
 .user-info p {
-    font-size: 14px;
+    font-size: 16px;
     color: #666;
 }
 
 /* Edit profile button */
 .edit-profile-button {
-    padding: 5px 10px;
+    padding: 5px 12px;
     background-color: #007BFF;
     color: white;
     border: none;
@@ -76,6 +76,27 @@ body {
 
 .edit-icon {
     margin-left: 5px;
+}
+
+/* Upload picture section */
+.upload-section {
+    margin: 20px 0;
+}
+
+.upload-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.upload-button:hover {
+    background-color: #45a049;
+}
+
+#file-input {
+    display: none;
 }
 
 /* Nearby users section */
@@ -101,21 +122,21 @@ body {
     background-color: #f4f4f4;
     padding: 10px;
     border-radius: 10px;
-    width: 100px;
+    width: 110px;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .user-card-picture {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 10px;
 }
 
 .user-card-name {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     color: #333;
 }
@@ -134,7 +155,7 @@ body {
 
 .action-button {
     width: 45%;
-    padding: 12px;
+    padding: 14px;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -147,8 +168,8 @@ body {
 }
 
 .button-icon {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     object-fit: contain;
 }
 
@@ -160,7 +181,7 @@ body {
     display: flex;
     justify-content: space-around;
     background-color: #fff;
-    padding: 10px 0;
+    padding: 12px 0;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -172,55 +193,79 @@ body {
 }
 
 .nav-icon {
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     object-fit: contain;
 }
 
 .bottom-nav span {
-    font-size: 12px;
+    font-size: 14px;
     color: #666;
 }
 
 /* Responsive adjustments */
 @media (max-width: 480px) {
+    .home-container {
+        padding: 15px;
+    }
+
     .profile-picture {
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
     }
 
     .user-info h2 {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .user-info p {
-        font-size: 12px;
+        font-size: 14px;
+    }
+
+    .upload-button {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
     }
 
     .action-buttons {
         flex-direction: column;
-        gap: 10px;
+        gap: 15px;
     }
 
     .action-button {
-        width: 80%;
+        width: 100%;
     }
 
     .button-icon {
-        width: 35px;
-        height: 35px;
+        width: 40px;
+        height: 40px;
     }
 
     .user-card {
         width: 90px;
+        padding: 8px;
+    }
+
+    .user-card-picture {
+        width: 70px;
+        height: 70px;
+    }
+
+    .user-card-name {
+        font-size: 12px;
+    }
+
+    .user-card-location {
+        font-size: 10px;
     }
 
     .nav-icon {
-        width: 25px;
-        height: 25px;
+        width: 28px;
+        height: 28px;
     }
 
     .bottom-nav {
-        padding: 8px 0;
+        padding: 10px 0;
     }
 }
