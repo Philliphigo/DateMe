@@ -1,134 +1,67 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
+/* Profile Picture Container */
+.profile-picture-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f9f9f9;
-    height: 100vh;
-}
-
-.profile-container {
-    width: 90%;
-    max-width: 400px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
+    margin-bottom: 20px;
     position: relative;
 }
 
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-bottom: 15px;
-}
-
-.back-button, .settings-button {
-    font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.profile-picture-container {
-    position: relative;
-    width: 100%;
-    max-width: 250px;
-    margin: 0 auto;
-}
-
+/* Profile Picture Styling */
 .profile-picture {
-    width: 100%;
-    height: auto;
-    border-radius: 15px;
+    width: 80px;  /* Set the width to match buttons */
+    height: 80px; /* Set the height to match buttons */
+    border-radius: 50%;  /* Make it circular */
+    object-fit: cover;  /* Ensure the image is cropped properly */
+    border: 2px solid #ccc;  /* Add a border to match the buttons */
 }
 
+/* Edit Photos Button */
 .edit-photos-button {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    padding: 5px 10px;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 8px 16px;
     font-size: 14px;
-    background-color: #f5f5f5;
-    border-radius: 10px;
-    border: none;
+    border-radius: 20px;
+    border: 1px solid #ccc;
     cursor: pointer;
-    display: flex;
-    align-items: center;
+    position: absolute;
+    bottom: -25px;  /* Position it just below the profile picture */
 }
 
-.edit-icon {
-    margin-left: 5px;
+/* Adjust Profile Picture and Buttons to Fit Properly */
+.profile-container {
+    padding: 20px;
+    text-align: center;
 }
 
-.user-name {
-    font-size: 24px;
+h2.user-name {
+    font-size: 22px; /* Smaller text to match button styling */
     font-weight: bold;
     margin-top: 10px;
-    color: #4B3A5A;
 }
 
-.user-profession, .user-location, .like-counter {
-    font-size: 16px;
-    color: #555;
-    margin: 5px 0;
-}
-
-.edit-details-button, .share-profile-button, .bottom-edit-details-button, .logout-button {
-    display: block;
-    width: 100%;
-    max-width: 300px;
-    margin: 10px auto;
-    padding: 10px;
-    font-size: 16px;
+/* Additional Button Styling */
+button {
+    background-color: #007bff;
     color: white;
-    background-color: #4B3A5A;
     border: none;
-    border-radius: 20px;
+    padding: 12px 25px;
+    border-radius: 25px;
     cursor: pointer;
+    margin: 10px 0;
+    font-size: 16px;
 }
 
-.share-profile-button {
-    background-color: #4B3A5A;
+button:hover {
+    background-color: #0056b3;
 }
 
-.bottom-edit-details-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #000;
+/* Logout Button */
+.logout-button {
+    background-color: red;
 }
 
-/* Scroll to Top Button */
-.scroll-to-top {
-    display: none;
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    padding: 10px;
-    font-size: 18px;
-    color: white;
-    background-color: #4B3A5A;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 480px) {
-    .user-name {
-        font-size: 20px;
-    }
-    .edit-details-button, .share-profile-button, .bottom-edit-details-button, .logout-button {
-        font-size: 14px;
-        padding: 8px;
-    }
+.logout-button:hover {
+    background-color: darkred;
 }
