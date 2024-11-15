@@ -1,46 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile - DateMe</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- Navigation Section -->
+<div class="profile-container">
     <header class="profile-header">
-        <a href="index.html" class="back-btn">←</a>
-        <h1>My Profile</h1>
-        <a href="#" class="settings-btn">⚙</a>
+        <div class="header-icons">
+            <button class="back-button">⬅</button>
+            <h1>My Profile</h1>
+            <button class="settings-button">⚙</button>
+        </div>
     </header>
-
-    <!-- Profile Section -->
-    <section class="profile-container">
-        <!-- Profile Picture -->
-        <div class="profile-picture">
-            <img src="442444577_1020965319453140_8401834952613764260_n.jpg" alt="Profile Picture">
+    <main>
+        <div class="profile-picture-section">
+            <img id="profile-picture" src="default-profile.jpg" alt="Profile Picture">
+            <input id="photo-input" type="file" accept="image/*" onchange="updateProfilePicture(event)" hidden>
+            <button class="edit-photo-btn" onclick="openPhotoEditor()">Edit Photo</button>
         </div>
-
-        <!-- User Details -->
-        <div class="profile-details">
-            <h2>Philip, 19</h2>
-            <p class="profile-info">Other • Lilongwe</p>
-            <p class="likes">1 like</p>
+        <div class="profile-info">
+            <h2 id="user-name">Philip, 19</h2>
+            <p id="user-bio">Other • Lilongwe</p>
+            <p id="user-profession">1 like</p>
         </div>
-
-        <!-- Action Buttons -->
         <div class="profile-actions">
-            <button class="btn-primary">Edit My Personal Details</button>
-            <button class="btn-secondary">Share My Profile</button>
-            <button class="btn-danger">Logout</button>
+            <button class="action-btn" onclick="openEditDetailsForm()">Edit My Personal Details</button>
+            <button class="action-btn" onclick="shareProfile()">Share My Profile</button>
+            <button class="logout-btn" onclick="logout()">Logout</button>
         </div>
-    </section>
-
-    <!-- Footer Section -->
+    </main>
     <footer>
-        <p>&copy; 2025 DateMe - All Rights Reserved</p>
+        <p>© 2025 DateMe - All Rights Reserved</p>
     </footer>
+</div>
 
-    <script src="app.js"></script>
-</body>
-</html>
+<!-- Edit Details Modal -->
+<div id="edit-details-modal" class="modal">
+    <div class="modal-content">
+        <h2>Edit Personal Details</h2>
+        <form id="edit-details-form">
+            <label for="edit-name">Name:</label>
+            <input id="edit-name" type="text" placeholder="Enter your name">
+            <label for="edit-age">Age:</label>
+            <input id="edit-age" type="number" placeholder="Enter your age">
+            <label for="edit-bio">Bio:</label>
+            <textarea id="edit-bio" placeholder="Tell us about yourself"></textarea>
+            <label for="edit-occupation">Occupation:</label>
+            <input id="edit-occupation" type="text" placeholder="Your occupation">
+            <label for="edit-preferences">Preferences:</label>
+            <input id="edit-preferences" type="text" placeholder="Hobbies and preferences">
+            <button type="submit">Save</button>
+            <button type="button" onclick="closeEditDetailsForm()">Cancel</button>
+        </form>
+    </div>
+</div>
