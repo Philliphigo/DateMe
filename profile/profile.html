@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top">&#8679; Top</button>
+
     <div class="profile-container">
         <!-- Back button and Settings icon -->
         <div class="header">
@@ -17,7 +20,7 @@
 
         <!-- Profile Picture with Edit Photos Button -->
         <div class="profile-picture-container">
-            <img src="profile-pic.jpg" alt="Profile Picture" class="profile-picture">
+            <img id="profile-picture" src="default-profile.png" alt="Profile Picture" class="profile-picture">
             <button class="edit-photos-button">
                 Edit Photos
                 <span class="edit-icon">&#9998;</span>
@@ -25,9 +28,9 @@
         </div>
 
         <!-- User Information -->
-        <h2 class="user-name">Philip, 19</h2>
-        <p class="user-profession">Other</p>
-        <p class="user-location">Lilongwe</p>
+        <h2 id="user-name" class="user-name">Philip, 19</h2>
+        <p id="user-profession" class="user-profession">Other</p>
+        <p id="user-location" class="user-location">Lilongwe</p>
         
         <!-- Like Counter -->
         <p class="like-counter">1 likes</p>
@@ -36,14 +39,15 @@
         <button class="edit-details-button">Edit My Personal Details &#9654;</button>
 
         <!-- Share Profile Button -->
-        <button class="share-profile-button">
-            &#x27A4; Share My Profile
-        </button>
+        <button class="share-profile-button">&#x27A4; Share My Profile</button>
 
         <!-- Edit Details Button at the bottom -->
         <button class="bottom-edit-details-button">
             Edit Details <span class="edit-icon">&#9998;</span>
         </button>
+
+        <!-- Logout Button -->
+        <button id="logout-button" class="logout-button">Logout</button>
     </div>
 
     <script src="app.js"></script>
