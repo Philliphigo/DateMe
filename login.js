@@ -31,8 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
             // Check stored user details
             const storedUser = JSON.parse(localStorage.getItem('user'));
             if (storedUser && storedUser.email === email && password.length >= 6) {
-                alert("Login successful! Redirecting to profile.");
-                window.location.href = 'profile.html'; // Redirect to profile page
+                alert("Login successful! Redirecting to home.");
+                window.location.href = 'home.html'; // Redirect to home page
             } else {
                 alert("Invalid email or password.");
             }
