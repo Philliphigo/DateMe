@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const closeSettingsButton = document.getElementById('close-settings-button');
     const settingsContent = document.getElementById('settings-content');
     const fileInput = document.getElementById('file-input');
-    
+
     // Function to display the next user
     function displayNextUser() {
         if (currentUserIndex < users.length - 1) {
@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
             currentUserIndex = 0; // Reset to the first user (or you can hide the button if desired)
         }
         userPicture.src = users[currentUserIndex].picture;
+        console.log('Displaying:', users[currentUserIndex].name); // Debugging info
     }
 
     // Event listeners for Like/Dislike buttons
