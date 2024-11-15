@@ -106,3 +106,12 @@ footer {
     width: 100%;
     bottom: 0;
 }
+
+/* Fixed Watermark */
+.watermark {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.3);
+}
