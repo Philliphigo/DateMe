@@ -19,8 +19,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
 
+        // Check if all fields are filled and password is at least 6 characters
         if (name && email && password.length >= 6) {
-            localStorage.setItem('user', JSON.stringify({ name, email }));
+            localStorage.setItem('user', JSON.stringify({ name, email, password }));
             alert("Sign-up successful! Redirecting to profile.");
             window.location.href = 'profile.html'; // Redirect to profile page
         } else {
@@ -35,8 +36,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const email = document.getElementById('login-email').value;
         const password = document.getElementById('login-password').value;
 
+        // Retrieve stored user details from localStorage
         const storedUser = JSON.parse(localStorage.getItem('user'));
-        if (storedUser && storedUser.email === email && password.length >= 6) {
+
+        // Check if stored user exists and credentials match
+        if (storedUser && storedUser.email === email && storedUser.password === password) {
             alert("Login successful! Redirecting to profile.");
             window.location.href = 'profile.html'; // Redirect to profile page
         } else {
