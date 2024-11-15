@@ -17,16 +17,17 @@
                 <button class="back-button">&#8592;</button>
             </a>
             <h2>My Profile</h2>
-            <button class="settings-button">&#9881;</button>
+            <button class="settings-button" id="settings-button">&#9881;</button>
         </div>
 
         <!-- Profile Picture with Edit Photos Button -->
         <div class="profile-picture-container">
-            <img id="profile-picture" src="442444577_1020965319453140_8401834952613764260_n.jpg" alt="Profile Picture" class="profile-picture">
-            <button class="edit-photos-button">
+            <img id="profile-picture" src="default-profile.png" alt="Profile Picture" class="profile-picture">
+            <button class="edit-photos-button" onclick="openPhotoEditor()">
                 Edit Photos
                 <span class="edit-icon">&#9998;</span>
             </button>
+            <input type="file" id="photo-input" accept="image/*" style="display: none;" onchange="updateProfilePicture(event)">
         </div>
 
         <!-- User Information -->
@@ -38,15 +39,31 @@
         <p class="like-counter">1 likes</p>
 
         <!-- Edit My Personal Details Button -->
-        <button class="edit-details-button">Edit My Personal Details &#9654;</button>
+        <button class="edit-details-button" onclick="openEditDetailsForm()">Edit My Personal Details &#9654;</button>
 
         <!-- Share Profile Button -->
-        <button class="share-profile-button">&#x27A4; Share My Profile</button>
+        <button class="share-profile-button" onclick="shareProfile()">&#x27A4; Share My Profile</button>
 
-        <!-- Edit Details Button at the bottom -->
-        <button class="bottom-edit-details-button">
-            Edit Details <span class="edit-icon">&#9998;</span>
-        </button>
+        <!-- Edit Details Modal -->
+        <div id="edit-details-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeEditDetailsForm()">&times;</span>
+                <h3>Edit My Details</h3>
+                <form id="edit-details-form">
+                    <label for="edit-name">Name:</label>
+                    <input type="text" id="edit-name" value="Philip">
+                    <label for="edit-age">Age:</label>
+                    <input type="number" id="edit-age" value="19">
+                    <label for="edit-bio">Bio:</label>
+                    <textarea id="edit-bio">This is my bio.</textarea>
+                    <label for="edit-occupation">Occupation:</label>
+                    <input type="text" id="edit-occupation" value="Other">
+                    <label for="edit-preferences">Preferences:</label>
+                    <input type="text" id="edit-preferences" value="Music, Tech, Sports">
+                    <button type="submit">Save Changes</button>
+                </form>
+            </div>
+        </div>
 
         <!-- Logout Button -->
         <button id="logout-button" class="logout-button">Logout</button>
