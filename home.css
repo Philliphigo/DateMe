@@ -159,18 +159,25 @@ body {
     cursor: pointer;
 }
 
+/* Bottom Navigation Wrapper */
+.bottom-nav-wrapper {
+    width: 100%;
+    overflow: hidden; /* Hide overflowing items */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+}
+
 /* Bottom Navigation */
 .bottom-nav {
     display: flex;
-    justify-content: space-around;
-    position: fixed bottom;
-    bottom: 0;
-    width: 10%;
-    background-color: #3030;
+    flex-direction: row; /* Horizontal layout */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for swipe effect */
     padding: 10px 0; /* Reduced padding for smaller size */
-    z-index: 1000; /* Ensure visibility above all elements */
 }
 
+/* Individual Navigation Button */
 .nav-button {
     background: none;
     color: white;
@@ -180,9 +187,41 @@ body {
     flex-direction: column;
     align-items: center;
     cursor: pointer;
+    flex-shrink: 0; /* Prevent buttons from shrinking */
+    width: 60px; /* Adjust width for fit */
+    text-align: center;
 }
 
+.nav-button:hover {
+    background-color: #444; /* Highlight on hover */
+}
+
+/* Navigation Button Icons */
 .nav-icon {
-    width: 30px; /* Reduced size for better fit */
+    width: 30px; /* Adjust icon size */
     height: 30px;
+}
+
+/* Scroll Indicators (Dots) */
+.nav-dots {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+/* Active Dot */
+.nav-dot.active {
+    background-color: #fff;
 }
