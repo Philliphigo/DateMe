@@ -175,6 +175,7 @@ body {
     flex-direction: row; /* Horizontal layout */
     transition: transform 0.3s ease-in-out; /* Smooth transition for swipe effect */
     padding: 10px 0; /* Reduced padding for smaller size */
+    justify-content: space-evenly; /* Add space evenly between buttons */
 }
 
 /* Individual Navigation Button */
@@ -190,6 +191,7 @@ body {
     flex-shrink: 0; /* Prevent buttons from shrinking */
     width: 60px; /* Adjust width for fit */
     text-align: center;
+    margin: 0 10px; /* Space out the buttons */
 }
 
 .nav-button:hover {
