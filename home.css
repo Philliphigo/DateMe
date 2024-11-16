@@ -165,9 +165,9 @@ body {
     justify-content: space-around;
     position: fixed;
     bottom: 0;
-    width: 90%;
+    width: 100%;
     background-color: #0000;
-    padding: 5px 0; /* Reduced padding for smaller size */
+    padding: 10px 0; /* Reduced padding for smaller size */
     z-index: 1000; /* Ensure visibility above all elements */
 }
 
@@ -183,6 +183,6 @@ body {
 }
 
 .nav-icon {
-    width: 20px; /* Reduced size for better fit */
-    height: 20px;
+    width: 7px; /* Reduced size for better fit */
+    height: 3px;
 }
