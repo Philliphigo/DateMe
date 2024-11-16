@@ -165,9 +165,9 @@ body {
     justify-content: space-around;
     position: fixed;
     bottom: 0;
-    width: 80%;
-    background-color: #333;
-    padding: 8px 0; /* Reduced padding for smaller size */
+    width: 90%;
+    background-color: #0000;
+    padding: 5px 0; /* Reduced padding for smaller size */
     z-index: 1000; /* Ensure visibility above all elements */
 }
 
