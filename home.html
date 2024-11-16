@@ -6,41 +6,150 @@
     <title>Home - Nearby Users</title>
     <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="home.css">
-    <!-- Google Fonts for cleaner typography -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(120deg, #000428, #004e92);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .home-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 80px; /* For bottom navigation spacing */
+        }
+
+        .home-header {
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            margin: 20px 0;
+        }
+
+        .profile-picture {
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+        }
+
+        .upload-button {
+            margin: 20px;
+            padding: 10px 20px;
+            border: 2px solid #ffffff;
+            background-color: transparent;
+            color: #ffffff;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .upload-button:hover {
+            background-color: #004e92;
+        }
+
+        .nearby-users-section h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .user-card {
+            display: flex;
+            align-items: center;
+            margin: 10px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            width: 90%;
+        }
+
+        .user-card-picture {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: space-around;
+            width: 80%;
+            margin: 20px 0;
+        }
+
+        .button-icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-around;
+            background: rgba(0, 0, 0, 0.9);
+            width: 100%;
+            max-width: 600px;
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .nav-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #ffffff;
+            text-decoration: none;
+            background: transparent;
+            border: none;
+            font-size: 0.9em;
+            cursor: pointer;
+        }
+
+        .nav-icon {
+            width: 30px;
+            height: 30px;
+            margin-bottom: 5px;
+        }
+
+        .nav-button:hover {
+            color: #00c6ff;
+        }
+    </style>
 </head>
 <body>
-    <!-- Main Container -->
     <div class="home-container">
-        <!-- Header Section (Profile Info) -->
+        <!-- Header Section -->
         <header class="home-header">
             <div class="user-profile">
-                <img id="user-picture" src="Screenshot_20241114_233733_Instagram.jpg" alt="User Profile" class="profile-picture">
+                <img id="user-picture" src="profile.jpg" alt="User Profile" class="profile-picture">
                 <div class="user-info">
                     <h2 id="user-name">Philip, 19</h2>
                     <p id="user-location">Lilongwe</p>
                 </div>
             </div>
-
             <button class="edit-profile-button" onclick="location.href='edit-profile.html'">
-                Edit Profile <span class="edit-icon">&#9998;</span>
+                Edit Profile
             </button>
         </header>
 
         <!-- Upload Picture Section -->
         <div class="upload-section">
             <button id="upload-button" class="upload-button">Upload Picture</button>
-            <input type="file" id="file-input" style="display: none;" accept="image/*">
+            <input type="file" id="file-input" style="display: none;">
         </div>
 
         <!-- Nearby Users Section -->
         <section class="nearby-users-section">
             <h3>Nearby Users</h3>
             <div class="user-cards-container">
-                <!-- User Card (Single User Profile) -->
                 <div class="user-card">
-                    <img src="Screenshot_20241114_233733_Instagram.jpg" alt="Nearby User" class="user-card-picture">
+                    <img src="nearby-user.jpg" alt="Nearby User" class="user-card-picture">
                     <div class="user-card-info">
                         <p class="user-card-name">John, 25</p>
                         <p class="user-card-location">Lilongwe</p>
@@ -49,55 +158,69 @@
             </div>
         </section>
 
-        <!-- Like/Dislike Buttons (Updated Layout) -->
+        <!-- Like/Dislike Buttons -->
         <div class="action-buttons">
-            <button id="like-button" class="action-button left">
-                <img src="pngtree-vector-like-icon-png-image_695362.jpg" alt="Like" class="button-icon">
+            <button id="like-button" class="action-button">
+                <img src="like-icon.jpg" alt="Like" class="button-icon">
             </button>
-            <button id="dislike-button" class="action-button right">
-                <img src="computer-icons-icon-design-like-button-clip-art-png-favpng-3SCMzVujVTNfYC2Ghe1vCzrTm_t.jpg" alt="Dislike" class="button-icon">
+            <button id="dislike-button" class="action-button">
+                <img src="dislike-icon.jpg" alt="Dislike" class="button-icon">
             </button>
         </div>
 
-        <!-- Settings Section -->
-        <div class="settings-section">
-            <button id="settings-button" class="settings-button">Settings</button>
-        </div>
-
-        <!-- Settings Modal -->
-        <div id="settings-modal" class="modal" style="display: none;">
-            <div class="settings-content" id="settings-content">
-                <!-- Settings will be dynamically loaded here -->
-                <button id="close-settings-button" class="close-button">Close</button>
-            </div>
-        </div>
-
-        <!-- Bottom Navigation (Fixed at the Bottom) -->
+        <!-- Bottom Navigation -->
         <div class="bottom-nav">
             <button class="nav-button home-button" onclick="location.href='home.html'">
-                <img src="png-transparent-computer-icons-home-house-home-angle-building-rectangle-thumbnail.png" alt="Home" class="nav-icon">
+                <img src="home-icon.png" alt="Home" class="nav-icon">
                 <span>Home</span>
             </button>
             <button class="nav-button matches-button" onclick="location.href='matches.html'">
-                <img src="3939875.png" alt="Matches" class="nav-icon">
+                <img src="matches-icon.png" alt="Matches" class="nav-icon">
                 <span>Matches</span>
             </button>
             <button class="nav-button connect-button" onclick="location.href='connect.html'">
-                <img src="png-clipart-computer-icons-connect-computer-network-angle.png" alt="Connect" class="nav-icon">
+                <img src="connect-icon.png" alt="Connect" class="nav-icon">
                 <span>Connect</span>
             </button>
             <button class="nav-button inbox-button" onclick="location.href='inbox.html'">
-                <img src="1159627.png" alt="Inbox" class="nav-icon">
+                <img src="inbox-icon.png" alt="Inbox" class="nav-icon">
                 <span>Inbox</span>
             </button>
             <button class="nav-button notifications-button" onclick="location.href='notifications.html'">
-                <img src="pngtree-vector-notification-icon-png-image_927192.jpg" alt="Notifications" class="nav-icon">
+                <img src="notifications-icon.png" alt="Notifications" class="nav-icon">
                 <span>Notifications</span>
             </button>
         </div>
     </div>
 
-    <!-- JavaScript -->
-    <script src="home.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const likeButton = document.getElementById("like-button");
+            const dislikeButton = document.getElementById("dislike-button");
+            const uploadButton = document.getElementById("upload-button");
+            const fileInput = document.getElementById("file-input");
+
+            if (likeButton) {
+                likeButton.addEventListener("click", () => {
+                    console.log("You liked a profile!");
+                });
+            }
+
+            if (dislikeButton) {
+                dislikeButton.addEventListener("click", () => {
+                    console.log("You disliked a profile!");
+                });
+            }
+
+            if (uploadButton && fileInput) {
+                uploadButton.addEventListener("click", () => {
+                    fileInput.click();
+                });
+                fileInput.addEventListener("change", () => {
+                    console.log("File selected:", fileInput.files[0]);
+                });
+            }
+        });
+    </script>
 </body>
 </html>
