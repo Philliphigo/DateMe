@@ -163,9 +163,9 @@ body {
 .bottom-nav {
     display: flex;
     justify-content: space-around;
-    position: fixed;
+    position: fixed bottom;
     bottom: 0;
-    width: 50%;
+    width: 10%;
     background-color: #3030;
     padding: 10px 0; /* Reduced padding for smaller size */
     z-index: 1000; /* Ensure visibility above all elements */
@@ -183,6 +183,6 @@ body {
 }
 
 .nav-icon {
-    width: 7px; /* Reduced size for better fit */
-    height: 3px;
+    width: 30px; /* Reduced size for better fit */
+    height: 30px;
 }
